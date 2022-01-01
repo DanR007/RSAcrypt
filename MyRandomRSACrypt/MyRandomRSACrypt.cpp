@@ -9,7 +9,7 @@
 
 //край для поиска простых чисел
 //N >= 13
-#define N 13
+#define N 7000
 
 void MakeArrayWithPrimeNumbersFromElevenToN();
 long int GetRandomPrimeNumber();
