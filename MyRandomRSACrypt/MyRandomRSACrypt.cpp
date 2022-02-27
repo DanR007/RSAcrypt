@@ -30,10 +30,10 @@ LL GetDecryptNumber(LL number, std::pair<LL, LL> private_key);
 LL GetFirstPartPublicKey(LL fi);
 LL GetFirstPartPrivateKey(LL fi, LL first_part_public_key);
 
-//массив для простых чисел
+
 std::vector<LL> g_array_prime_numbers;
 
-//файлы для кодирования сообщений
+
 std::ifstream g_file_message(std::filesystem::current_path().string() + "/message.txt");
 std::ofstream g_file_encrypt_message(std::filesystem::current_path().string() + "/encrypt_message.txt");
 std::ifstream g_file_need_encrypt_message(std::filesystem::current_path().string() + "/encrypt_message.txt");
@@ -182,7 +182,7 @@ LL GetFirstPartPrivateKey(LL fi, LL first_part_public_key)
 
 LL GetEncryptNumber(LL number, std::pair<LL, LL> public_key)
 {
-    LL encryptNumber = 1, current = number - 97;
+    LL encryptNumber = 1, current = number;
 
     for (LL i = 0; i < public_key.first; i++)
     {
@@ -216,7 +216,7 @@ LL GetDecryptNumber(LL number, std::pair<LL, LL> private_key)
         decryptNumber %= private_key.second;
     }
 
-    return decryptNumber + 97;
+    return decryptNumber;
 }
 
 void DecryptMessage(std::vector<LL>& encrypt_message_in_dec, std::string& decrypt_message,
